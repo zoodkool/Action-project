@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Go Link home</title>
+    <script type="text/javascript" nonce="65a3b6bf04414d4683971fcb10c" src="//local.adguard.org?ts=1563847669476&amp;type=content-script&amp;dmn=doc-0o-bs-docs.googleusercontent.com&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1"></script>
+    <script type="text/javascript" nonce="65a3b6bf04414d4683971fcb10c" src="//local.adguard.org?ts=1563847669476&amp;name=AdGuard%20Popup%20Blocker&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script src="https://www.gstatic.com/firebasejs/6.3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div id="main_container" style="display:none;">
+        <h1>Hãy copy userID dưới đây:</h1>
+        <p id="message"></p>
+        <button onclick="mainApp.logout();">Đăng xuất</button>
+        <button onclick="googlehome()">Nhấn vào đây</button>
+    
+    </div>
+    <script src="firebaseConfig.js"></script>
+    <script src="index.js"></script>
+    <script>
+        function googlehome() {
+        console.log("Dang chuyen huong")
+        //window.location.replace("https://golinkco.com/?redirect_uri=https%3A%2F%2Foauth-redirect.googleusercontent.com%2Fr%2Fgolink-e03bc&client_id=8pldfv1e64ahponel9f9t3bu6o6g1tf7&response_type=code")
+        var urlParams = new URLSearchParams(window.location.search);
+        console.log("Dang chuyen huong 2")
+        firebase.auth().currentUser.getIdToken().then(function(idToken) {
+        console.log("Dang chuyen huong 3")
+        window.location.replace(REDIRECT_URI + '?code=' + idToken + '&state=' + urlParams.get('state'));
+        });
+        }
+    </script>
+</body>
+</html>

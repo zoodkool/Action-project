@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "go-link-75cab"
+  },
+  "targets": {
+    "go-link-75cab": {
+      "hosting": {
+        "firmware": [
+          "firmware-golink"
+        ],
+        "control": [
+          "control-golink"
+        ],
+        "home": [
+          "go-link-75cab"
+        ]
+      }
+    }
+  }
+}
